@@ -13,18 +13,16 @@ public class CipherPartTwo
 		char[] lowerCipher = new char[26];
 		char[] upperCipher = new char[26];
 		int shift = shiftAmount;
-		int diff = 0;
 		
 		if(encrypt)
 		{
-			for(int i = 0; i<lowerCipher.length;i++)
+			for(int i = 0; i<lowerCipher.length; i++)
 			{
-				diff = alphabet[i] - 'a';
-				if((shift + diff) % 26 < 0)
-					lowerCipher[i] = (char) ('z' + (shift + diff + 1));
+				if((i+shift) % 26 <0)
+					lowerCipher[i] = alphabet[26 + (i+shift)];
+			
 				else
-					lowerCipher[i] = (char) (alphabet[i] + shift);
-				
+					lowerCipher[i]=alphabet[(i+shift) % 26];
 			}
 			
 			for(int j = 0; j<upperCipher.length; j++)
