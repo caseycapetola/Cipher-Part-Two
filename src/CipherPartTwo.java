@@ -72,10 +72,10 @@ public class CipherPartTwo
 			for(int i = 0; i<lowerCipher.length;i++)
 			{
 				diff = alphabet[i] - 'a';
-				if((shift + diff) % 26 < 0)
-					lowerCipher[i] = (char) ('z' + (shift + diff + 1));
+				if(i + shift % 26 < 0)
+					lowerCipher[i] = (char) (26 + (i+shift));
 				else
-					lowerCipher[i] = (char) (alphabet[i] + shift);
+					lowerCipher[i] = alphabet[(i+shift) % 26];
 				
 			}
 			
